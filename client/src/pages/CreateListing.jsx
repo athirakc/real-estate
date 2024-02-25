@@ -116,9 +116,9 @@ const CreateListing = () => {
     }
 
     if (
-      e.target.type == "number" ||
-      e.target.type == "text" ||
-      e.target.type == "textarea"
+      e.target.type === "number" ||
+      e.target.type === "text" ||
+      e.target.type === "textarea"
     ) {
       setFormData({
         ...formData,

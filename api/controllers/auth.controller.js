@@ -2,7 +2,6 @@ import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
 import { errorHandler } from "../utils/error.js";
 import jwt from "jsonwebtoken";
-import { json } from "express";
 
 export const signup = async (req, res, next) => {
   const { username, email, password } = req.body;
@@ -34,7 +33,7 @@ export const signin = async (req, res, next) => {
     res
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
-      .json(validUser);
+      .json(rest);
   } catch (error) {
     next(error);
   }
@@ -45,7 +44,7 @@ export const google = async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-      const { password, ...rest } = user._doc;
+      const { password: pass, ...rest } = user._doc;
       res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)

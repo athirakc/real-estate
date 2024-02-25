@@ -37,8 +37,7 @@ const Profile = () => {
 
   const dispatch = useDispatch();
 
-  console.log(formData);
-  // console.log(userListings);
+
 
   useEffect(() => {
     if (file) {
@@ -213,15 +212,17 @@ const Profile = () => {
           type="text"
           placeholder="username"
           id="username"
+          required
           defaultValue={currentUser.username}
           onChange={handleChange}
           className="border p-3 rounded-lg"
         />
 
         <input
-          type="text"
+          type="email"
           placeholder="email"
           id="email"
+          required
           defaultValue={currentUser.email}
           onChange={handleChange}
           className="border p-3 rounded-lg"
@@ -232,6 +233,7 @@ const Profile = () => {
           placeholder="password"
           onChange={handleChange}
           id="password"
+          required
           className="border p-3 rounded-lg"
         />
 

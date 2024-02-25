@@ -23,17 +23,14 @@ const Listing = () => {
   const params = useParams();
 
   const [listing, setListing] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const [contact, setContact] = useState(false);
     
   const { currentUser } = useSelector((state) => state.user);
-
   
-
-  console.log(listing);
 
   useEffect(() => {
     const fetchListing = async () => {

@@ -1,6 +1,5 @@
-import {set} from 'mongoose';
 import { useNavigate, Link } from 'react-router-dom';
-import React, { useState } from "react";
+import { useState } from "react";
 import OAuth from '../components/OAuth';
 
 
@@ -59,6 +58,7 @@ const SignUp = () => {
           placeholder="Username"
           className="border p-3 rounded-lg"
           id="username"
+          required
           onChange={handleChange}
         />
         <input
@@ -66,6 +66,7 @@ const SignUp = () => {
           placeholder="Email"
           className="border p-3 rounded-lg"
           id="email"
+          required
           onChange={handleChange}
         />
         <input
@@ -73,6 +74,7 @@ const SignUp = () => {
           placeholder="Password"
           className="border p-3 rounded-lg"
           id="password"
+          required
           onChange={handleChange}
         />
         <button className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">

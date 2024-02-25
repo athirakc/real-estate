@@ -19,7 +19,6 @@ export default function Search() {
   const [showMore, setShowMore] = useState(false);
 
 
-  console.log(sidebardata);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);

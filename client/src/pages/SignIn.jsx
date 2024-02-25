@@ -55,6 +55,7 @@ const SignIn = () => {
           placeholder="Email"
           className="border p-3 rounded-lg"
           id="email"
+          required
           onChange={handleChange}
         />
         <input
@@ -62,6 +63,7 @@ const SignIn = () => {
           placeholder="Password"
           className="border p-3 rounded-lg"
           id="password"
+          required
           onChange={handleChange}        
         />
         <button disabled={loading} className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80">

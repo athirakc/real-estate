@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Contact = ({ listing }) => {
+export default function Contact({ listing }) {
 
   const [landlord, setLandlord ] = useState(null);
   const [message, setMessage] = useState("");
+  const onChange = (e) => {
+    setMessage(e.target.value);
+  };
 
   useEffect(() => {
       const fetchLandlord = async () => {
         try{
           const res = await fetch(`/api/user/${listing.userRef}`);
           const data = await res.json();
-          if(data.success === false){
-            return;
-          }
           setLandlord(data);
         } catch(error){
           console.log(error);
@@ -22,12 +22,10 @@ const Contact = ({ listing }) => {
       fetchLandlord();
   }, [listing.userRef]);
 
-  const onChange = (e) => {
-    setMessage(e.target.value);
-  };
+ 
 
   return (
-    <div>
+    <>
       {landlord && (
         <div className='flex flex-col gap-2'>
           <p>
@@ -53,8 +51,6 @@ const Contact = ({ listing }) => {
 
         </div>
       )}
-    </div>
-  )
+    </>
+  );
 }
-
-export default Contact
